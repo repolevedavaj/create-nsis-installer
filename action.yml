@@ -1,0 +1,22 @@
+name: 'Create CLI app NSIS installer'
+description: 'Creates a simple CLI app installer using NSIS (only supported on Windows)'
+author: 'repolevedavaj'
+branding:
+  icon: 'package'
+  color: 'gray-dark'
+inputs:
+  package-identifier:
+    required: true
+    description: 'The identifier of the package. The identifier must consist of two pascal cased values. The first part will be used as parent and the second as child directory in the programs root directory.'
+  package-name:
+    required: true
+    description: 'The human-readable package name'
+  package-version:
+    required: true
+    description: 'The package version'
+  source-directory:
+    required: true
+    description: 'The source directory containing the files should be installed. The installer will be named equal to the directory plus the "-setup.exe" suffix.'
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
